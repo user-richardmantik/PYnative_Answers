@@ -8,4 +8,4 @@ while i <= COUNT_ROWS:
         line = line + (' ' if (j > 1) else '') + str(i)
         j += 1
     i += 1
-    print(line)
+    print(line) 
