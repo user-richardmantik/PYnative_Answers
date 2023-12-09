@@ -8,7 +8,7 @@ def is_prime(num):
     for num_1 in range (2, math.floor(math.sqrt(num)) + 1):
         if (num % num_1 == 0):
             return False
-    return True
+    return num != 1 and True
 
 print (num, 'is ' + ('NOT ' if (not is_prime(num)) else '') + 'a prime number')
 
