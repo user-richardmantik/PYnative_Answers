@@ -1,4 +1,4 @@
-import math
+import time
 
 def automorphic_numbers(power):
     automorphic_numbers = list()
@@ -22,10 +22,12 @@ def automorphic_numbers(power):
 
     return automorphic_numbers
 
+start_time = time.time()
 automorphic_numbers = automorphic_numbers(4)
-
 print (', '.join([str(num) for num in automorphic_numbers]))
+end_time = time.time()
 
+print("The time of execution of above program is :", (end_time-start_time) * 10**3, "ms")
 
 
 
