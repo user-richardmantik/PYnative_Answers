@@ -1,7 +1,7 @@
 import math
 
 start_num = 1
-end_num = 199933
+end_num = 200000
 
 def get_digits(num):
     num_str = str(num)
