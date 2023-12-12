@@ -26,7 +26,7 @@ for num_i in range(start_num, end_num + 1):
     if (sum_divisors not in sum_divisors_dict.keys()):
         sum_divisors_dict[sum_divisors] = list()
     sum_divisors_dict[sum_divisors].append(num_i)
-
+    
 for sum_divisors in sorted(sum_divisors_dict.keys()):
     for num_i in sum_divisors_dict[sum_divisors]:
         if (sum_divisors < num_i and num_i in sum_divisors_dict.keys() and sum_divisors in sum_divisors_dict[num_i]):
