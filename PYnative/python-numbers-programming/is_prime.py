@@ -2,9 +2,7 @@ import time
 import math
 
 start_time = time.time()
-num = 1029384567
-
-import math
+num = 13 ** 4 + 32 ** 4 - 172 ** 2
 
 def get_divisors_list(num):
     divisors_list = list()
@@ -23,7 +21,12 @@ def is_prime(num):
 
 print (num, 'is ' + ('NOT ' if (not is_prime(num)) else '') + 'a prime number')
 if (not is_prime(num)):
-    print ('divisors =', get_divisors_list(num))
+    divisor_list = get_divisors_list(num)
+    print ('divisors =', divisor_list)
+    prime_divisor_list = []
+    for num_i in divisor_list:
+        if (is_prime(num_i)): prime_divisor_list.append(num_i)
+    print ('prime_divisors =', prime_divisor_list)
 
 end_time = time.time()
 print("The time of execution of above program is :", (end_time-start_time) * 10**3, "ms")
