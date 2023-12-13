@@ -2,7 +2,7 @@ import time
 import math
 
 start_time = time.time()
-num = 13 ** 4 + 32 ** 4 - 172 ** 2
+num = 1029384567
 
 def get_divisors_list(num):
     divisors_list = list()

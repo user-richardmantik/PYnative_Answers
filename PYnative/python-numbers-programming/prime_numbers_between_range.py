@@ -1,7 +1,7 @@
 import math
 
-start_num = 1
-end_num = 1000
+start_num   = 1000
+end_num     = 9999
 
 is_prime_dict = {}
 is_prime_dict[0] = False
