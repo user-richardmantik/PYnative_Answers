@@ -1,3 +1,4 @@
 Nth term in Seq
 Recamans Seq
 Pedovan Seq
+Mosert de Bruijn Seq
