@@ -1,1 +1,1 @@
-Ulam Numbers
+Nth term in Seq
