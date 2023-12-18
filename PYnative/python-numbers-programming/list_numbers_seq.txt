@@ -2,5 +2,6 @@ Recamans Seq
 Pedovan Seq
 Mosert de Bruijn Seq
 Newman Conway Seq
+Sylvester’s Seq
 
 Nth term in Seq a
