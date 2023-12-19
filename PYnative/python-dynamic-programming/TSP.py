@@ -1,46 +1,33 @@
 import copy
 
-n = 4
-depth_reccursion = 0
+COUNT_NODES = 4
 distance_map = [[0, 0, 0, 0, 0], [0, 0, 10, 15, 20], [0, 10, 0, 35, 25], [0, 15, 35, 0, 30], [0, 20, 25, 30, 0]]
-
+path_depth = 0
 map_memo = []
 #map_memo[]  = ([1, 2, 4, 3, 1], 80)
-def init_map_memo(map_memo):
-	global distance_map
-	for n in range (1, len(distance_map)):
-		for m in range(1, len(distance_map[n])):
-			if distance_map[n][m] != 0:
-				map_memo.append(([n, m], distance_map[n][m]))
 
-def get_item_tuple_from_map_memo(path_list, map_memo):
-	for item_tuple in map_memo:
-		if (item_tuple[0] == path_list):
-			return item_tuple
-	return None
+def min_dist_tsp(map_memo):
+	global distance_map, path_depth
 
-def min_dist_tsp(from_n, to_n, map_memo):
-	global distance_map
-
-	if (from_n == to_n):
-		return 0
-
-	min_dist = None
-	for to_n_i in range(1, len(distance_map[to_n])):
-		for path_list, path_dist in map_memo:
-			if (path_list[len(path_list)-1] == to_n_i and to_n not in path_list and len(path_list) <= n):
-				new_path_list = list(path_list) + [to_n]
-				new_dist	  = path_dist + distance_map[to_n_i][to_n]
+	if (len(map_memo) == 0):
+		for num_i in range(1, COUNT_NODES + 1):
+			map_memo.append(([num_i], 0))
+	else:
+		if (path_depth > COUNT_NODES):
+			return
+		len_map_memo = len(map_memo)
+		for j in range(0, len_map_memo):
+			path_tuple = map_memo.pop(0)
+			
+			for num_i in range(1, COUNT_NODES + 1):
 				
-				map_memo.append((new_path_list, new_dist))
-					
-				min_dist = min_dist_tsp(from_n, to_n_i, map_memo) + new_dist
-				print(map_memo)
-				exit(0)
-	
-	return min_dist
+				if (num_i not in path_tuple[0] 
+					or (num_i == path_tuple[0][len(path_tuple[0])-1] and len(path_tuple[0]) >= COUNT_NODES)):
+					num_j = path_tuple[0][0]
+					map_memo.append(([num_i] + path_tuple[0], path_tuple[1] + distance_map[num_i][num_j]))
 
-
-init_map_memo(map_memo)
-min_dist_tsp(1, 2, map_memo)
+	path_depth += 1
+	min_dist_tsp(map_memo)		
+		
+min_dist_tsp(map_memo)
 print(map_memo)
