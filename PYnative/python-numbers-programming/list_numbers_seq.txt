@@ -1,9 +1,13 @@
-Recamans Seq
-Pedovan Seq
-Mosert de Bruijn Seq
-Newman Conway Seq
-Sylvester’s Seq
-Aliquot Seq
-Juggler Seq
+Juggler Sequence
+
+Padovan Sequence
+Aliquot Sequence
+Moser-de Bruijn Sequence
+
+Stern-Brocot Sequence
+Newman-Conway Sequence
+Sylvester’s sequence
+Recaman’s sequence
+
 
 Nth term in Seq a
