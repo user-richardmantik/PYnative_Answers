@@ -1,3 +1,5 @@
+COUNT_NUMS = 12
+
 nc_nums_dict = {}
 nc_nums_dict[0] = None
 nc_nums_dict[1] = 1
@@ -14,6 +16,5 @@ def nc_nums_seq(n, nc_nums_dict):
         nc_nums_dict[n] = curr_num
         return curr_num
 
-COUNT_NUMS = 12
 for n in range(1, COUNT_NUMS+1):
     print (nc_nums_seq(n, nc_nums_dict), end = ' ')
