@@ -4,5 +4,6 @@ Mosert de Bruijn Seq
 Newman Conway Seq
 Sylvester’s Seq
 Aliquot Seq
+Juggler Seq
 
 Nth term in Seq a
