@@ -1,14 +1,46 @@
-dist = [[0, 0, 0, 0, 0], [0, 0, 10, 15, 20], [0, 10, 0, 25, 25], [0, 15, 25, 0, 30], [0, 20, 25, 30, 0]]
+import copy
 
-memo = {}
+n = 4
+depth_reccursion = 0
+distance_map = [[0, 0, 0, 0, 0], [0, 0, 10, 15, 20], [0, 10, 0, 35, 25], [0, 15, 35, 0, 30], [0, 20, 25, 30, 0]]
 
-for i in dist:
-    for j in dist[i]:
-        if (i not in memo.keys()):
-            memo[i] = {}
-        elif (j not in memo[i].keys()):
-            memo[i][j] = dist[i][j]
-        else:
-            memo[n][j] = min(memo[n][j], memo[n][i] + memo[i][j])
+map_memo = []
+#map_memo[]  = ([1, 2, 4, 3, 1], 80)
+def init_map_memo(map_memo):
+	global distance_map
+	for n in range (1, len(distance_map)):
+		for m in range(1, len(distance_map[n])):
+			if distance_map[n][m] != 0:
+				map_memo.append(([n, m], distance_map[n][m]))
 
-# TO DO:
+def get_item_tuple_from_map_memo(path_list, map_memo):
+	for item_tuple in map_memo:
+		if (item_tuple[0] == path_list):
+			return item_tuple
+	return None
+
+def min_dist_tsp(from_n, to_n, map_memo):
+	global distance_map
+
+	if (from_n == to_n):
+		return 0
+
+	min_dist = None
+	for to_n_i in range(1, len(distance_map[to_n])):
+		for path_list, path_dist in map_memo:
+			if (path_list[len(path_list)-1] == to_n_i and to_n not in path_list and len(path_list) <= n):
+				new_path_list = list(path_list) + [to_n]
+				new_dist	  = path_dist + distance_map[to_n_i][to_n]
+				
+				map_memo.append((new_path_list, new_dist))
+					
+				min_dist = min_dist_tsp(from_n, to_n_i, map_memo) + new_dist
+				print(map_memo)
+				exit(0)
+	
+	return min_dist
+
+
+init_map_memo(map_memo)
+min_dist_tsp(1, 2, map_memo)
+print(map_memo)
